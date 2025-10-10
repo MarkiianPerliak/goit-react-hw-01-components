@@ -1,18 +1,9 @@
+import PropTypes from 'prop-types';
 import './App.css';
 import {Social} from './Social.jsx';
 import {Statistics} from './Statistics.jsx';
 import {FriendList} from './FriendList.jsx';
 import {Transaction} from './TransactionHistory.jsx';
-
-// const list = [
-  // {
-  //   username: "",
-  //   tag: "",
-  //   location: "",
-  //   avatar: "",
-  //   stats: ""
-  // }
-// ]
 
 const user =   {
     username: "Petra Marica",
@@ -104,4 +95,12 @@ export const App = () => {
       <Transaction history={transaction}/>
     </div>
   )
+}
+
+App.propTypes = {
+  user: PropTypes.object,
+  transaction: PropTypes.array,
+  stats: PropTypes.array,
+  friends: PropTypes.array,
+  text: PropTypes.string
 }
