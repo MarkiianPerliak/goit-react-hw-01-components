@@ -1,26 +1,20 @@
+import style from "./Statistics.module.css";
+
 export const Statistics = (data) => {
     return (
         <div className="Statistics">
-  <h2 class="title">{data.title}</h2>
+          <div className={style.box}>
+  <h2 className={style.title}>{data.title}</h2>
 
-  <ul class="stat-list">
-    <li class="item">
-      <span class="label">.docx</span>
-      <span class="percentage">{data.stats[0]}</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp3</span>
-      <span class="percentage">{data.stats[1]}</span>
-    </li>
-    <li class="item">
-      <span class="label">.pdf</span>
-      <span class="percentage">{data.stats[2]}</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp4</span>
-      <span class="percentage">{data.stats[3]}</span>
-    </li>
+  <ul className={style.stat__list}>
+        {data.stats.map((stat) => (
+          <li className={style.item} style={{ backgroundColor: stat.color }}>
+            <p className={style.label}>{stat.type}</p>
+            <p className={style.percentage}>{stat.percnt}</p>
+          </li>
+        ))}
   </ul>
+          </div>
         </div>
     )
 }
